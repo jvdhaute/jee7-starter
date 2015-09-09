@@ -2,4 +2,7 @@
     <book id="1000" author="George Orwell" title="Nineteen Eighty Four" genre="fiction"/>
     <book id="2000" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
     <book id="3000" author="Bram Stoker" title="Dracula" genre="fiction"/>
+    <passenger  id="1" ssn="abc" firstName="Jeroen" lastName="Vdh" frequentFlyerMiles="500" />
+    <passenger  id="2" ssn="abc" firstName="Jeroen" lastName="Van den haute" frequentFlyerMiles="5000" />
+    <passenger  id="3" ssn="abdfsdc" firstName="Jdsfn" lastName="Van den haute" frequentFlyerMiles="5" />
 </dataset>
