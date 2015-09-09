@@ -5,6 +5,7 @@ package com.realdolmen.course.persistence;
  */
 
 import com.realdolmen.course.domain.Passenger;
+import com.realdolmen.course.domain.PassengerType;
 import org.junit.Before;
 import org.junit.Test;
 

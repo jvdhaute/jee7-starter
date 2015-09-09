@@ -47,6 +47,7 @@
 
         <class>com.realdolmen.course.domain.Book</class>
         <class>com.realdolmen.course.domain.Passenger</class>
+        <class>com.realdolmen.course.domain.PassengerType</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
