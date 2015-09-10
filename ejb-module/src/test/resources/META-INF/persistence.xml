@@ -48,6 +48,9 @@
         <class>com.realdolmen.course.domain.Book</class>
         <class>com.realdolmen.course.domain.Passenger</class>
         <class>com.realdolmen.course.domain.PassengerType</class>
+        <class>com.realdolmen.course.domain.CreditCardType</class>
+        <class>com.realdolmen.course.domain.CreditCard</class>
+        <class>com.realdolmen.course.domain.Address</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

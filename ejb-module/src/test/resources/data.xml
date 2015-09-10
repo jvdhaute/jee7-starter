@@ -2,7 +2,10 @@
     <book id="1000" author="George Orwell" title="Nineteen Eighty Four" genre="fiction"/>
     <book id="2000" author="Aldous Huxley" title="Brave New World" genre="fiction"/>
     <book id="3000" author="Bram Stoker" title="Dracula" genre="fiction"/>
-    <passenger  id="1" ssn="abc" firstName="Jeroen" lastName="Vdh" frequentFlyerMiles="500" birthDate="1990-09-09" flightDate = "1990-09-09 12:00:00" passengerType="REGULAR"/>
-    <passenger  id="2" ssn="abc" firstName="Jeroen" lastName="Van den haute" frequentFlyerMiles="5000" birthDate="1990-09-09" flightDate = "1990-09-09 12:00:00" passengerType="OCCASIONAL"  />
-    <passenger  id="3" ssn="abdfsdc" firstName="Jdsfn" lastName="Van den haute" frequentFlyerMiles="5" birthDate="1990-09-09" flightDate = "1990-09-09 12:00:00" passengerType="REGULAR" />
+    <passenger  id="1" city="Affligem" country="belgie" street1="molleweg" street2="vogelzang" zipcode="1790" ssn="abc" firstName="Jeroen" lastName="Vdh" frequentFlyerMiles="500" birthDate="1990-09-09" flightDate = "1990-09-09 12:00:00" passengerType="REGULAR"/>
+    <passenger  id="2" city="Affligem" country="belgie" street1="moeweg" street2="vogelzang" zipcode="1790" ssn="abc" firstName="Jeroen" lastName="Van den haute" frequentFlyerMiles="5000" birthDate="1990-09-09" flightDate = "1990-09-09 12:00:00" passengerType="OCCASIONAL"  />
+    <passenger  id="3" city="Affligem" country="belgie" street1="weg" street2="vogelzang" zipcode="1790" ssn="abdfsdc" firstName="Jdsfn" lastName="Van den haute" frequentFlyerMiles="5" birthDate="1990-09-09" flightDate = "1990-09-09 12:00:00" passengerType="REGULAR" />
+    <passenger_cards Passenger_id="1" controlNumber="1000" creditCardType="VISA" expiryDate="2018-01-01" number="500" />
+    <passenger_cards Passenger_id="2" controlNumber="10000" creditCardType="VISA" expiryDate="2018-01-01" number="500" />
+    <passenger_cards Passenger_id="3" controlNumber="100000" creditCardType="VISA" expiryDate="2018-01-01" number="500" />
 </dataset>

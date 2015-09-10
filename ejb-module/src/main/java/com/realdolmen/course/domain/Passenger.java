@@ -6,9 +6,15 @@ package com.realdolmen.course.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
 import com.realdolmen.course.domain.PassengerType;
+import com.realdolmen.course.domain.CreditCard;
+import com.realdolmen.course.domain.Address;
+
 @Entity
 public class Passenger implements Serializable{
 
@@ -32,8 +38,50 @@ public class Passenger implements Serializable{
     @Enumerated(EnumType.STRING)
     private PassengerType passengerType;
 
+    @Embedded
+    private Address address;
+    @ElementCollection
+    private List<CreditCard> cards = new ArrayList<CreditCard>();
+
     protected Passenger(){
 
+    }
+
+    private void calcAge(){
+
+    }
+
+    public Passenger(List<CreditCard> cards) {
+        this.cards = cards;
+    }
+
+    public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles, Date birthDate, Date flightDate, PassengerType passengerType, Address address, List<CreditCard> cards) {
+        this.ssn = ssn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.frequentFlyerMiles = frequentFlyerMiles;
+        this.birthDate = birthDate;
+        this.flightDate = flightDate;
+        this.passengerType = passengerType;
+        this.address = address;
+        this.cards = cards;
+
+        Calendar dob = Calendar.getInstance();
+        dob.setTime(birthDate);
+        Calendar today = Calendar.getInstance();
+        int agecalc = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
+            agecalc--;
+        this.age = agecalc;
+
+    }
+
+    public List<CreditCard> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<CreditCard> cards) {
+        this.cards = cards;
     }
 
     public Passenger(String ssn, String firstName, String lastName, Integer frequentFlyerMiles, Date birthDate, Date flightDate, PassengerType passengerType) {

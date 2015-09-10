@@ -19,6 +19,7 @@ public class PassengerRepositoryTest extends  DataSetPersistenceTest {
         repository.entityManager = entityManager();
     }
 
+
     @Test
     public void allPassengerCanBeRetrieved() throws Exception {
         assertEquals(3, repository.findAll().size());
@@ -26,10 +27,12 @@ public class PassengerRepositoryTest extends  DataSetPersistenceTest {
 
 
     @Test
-    public void bookCanBeRemovedById() throws Exception {
+    public void passengerCanBeRemovedById() throws Exception {
         repository.remove(2L);
         assertNull(entityManager().find(Passenger.class, 2L));
     }
+
+
 
 
 }
