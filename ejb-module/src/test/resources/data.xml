@@ -8,4 +8,12 @@
     <passenger_cards Passenger_id="1" controlNumber="1000" creditCardType="VISA" expiryDate="2018-01-01" number="500" />
     <passenger_cards Passenger_id="2" controlNumber="10000" creditCardType="VISA" expiryDate="2018-01-01" number="500" />
     <passenger_cards Passenger_id="3" controlNumber="100000" creditCardType="VISA" expiryDate="2018-01-01" number="500" />
+    <plane id="1" type="a3" />
+    <flight  id="1000" arrivalTime="2025-09-09 12:00:00" departureTime = "2025-09-09 16:00:00" number="A300" plane_id="1"/>
+    <flight  id="1001" arrivalTime="2025-09-09 12:00:00" departureTime = "2025-09-09 16:00:00" number="A300" plane_id="1"/>
+    <flight  id="1002" arrivalTime="2025-09-09 12:00:00" departureTime = "2025-09-09 16:00:00" number="A300" plane_id="1"/>
+    <domesticflight airlineCompany="snb" reference="sdf" id="1000" />
+    <domesticflight airlineCompany="ryanair" reference="sdf" id="1001" />
+    <internationalflight blacklisted="1" regulations="sdf" id="1002" />
+
 </dataset>

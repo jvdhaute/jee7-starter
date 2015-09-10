@@ -10,18 +10,20 @@ import java.util.List;
  */
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Flight {
+    //
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String number;
-    private Date departureTime;
-    private Date arrivalTime;
+    protected Long id;
+    protected String number;
+    protected Date departureTime;
+    protected Date arrivalTime;
     @ManyToOne(cascade = {CascadeType.PERSIST})
-    private Plane plane;
+    protected Plane plane;
 
 
     @OneToMany(cascade = {CascadeType.PERSIST})
-    private List<Ticket> tickets = new ArrayList<Ticket>();
+    protected List<Ticket> tickets = new ArrayList<Ticket>();
      public Flight(String number, Date departureTime, Date arrivalTime, List<Ticket> tickets, Plane p) {
 
 
@@ -34,6 +36,11 @@ public class Flight {
         this.plane = p;
     }
 
+    public Flight(Date departureTime, Date arrivalTime, String number) {
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.number = number;
+    }
 
     protected Flight(){
 
