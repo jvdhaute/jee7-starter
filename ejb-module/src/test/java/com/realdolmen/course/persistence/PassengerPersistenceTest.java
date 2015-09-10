@@ -32,7 +32,6 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
         List<CreditCard> lst = new ArrayList<CreditCard>();
         lst.add(card);
         lst.add(card2);
-
         Passenger p = new Passenger("absc", "Jeroen", "Vdh", 123, date1, now, PassengerType.OCCASIONAL, ad, lst);
         entityManager().persist(p);
 

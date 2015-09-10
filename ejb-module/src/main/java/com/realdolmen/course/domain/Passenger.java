@@ -48,7 +48,13 @@ public class Passenger implements Serializable{
     }
 
     private void calcAge(){
-
+        Calendar dob = Calendar.getInstance();
+        dob.setTime(birthDate);
+        Calendar today = Calendar.getInstance();
+        int agecalc = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
+            agecalc--;
+        this.age = agecalc;
     }
 
     public Passenger(List<CreditCard> cards) {
@@ -65,14 +71,8 @@ public class Passenger implements Serializable{
         this.passengerType = passengerType;
         this.address = address;
         this.cards = cards;
+        calcAge();
 
-        Calendar dob = Calendar.getInstance();
-        dob.setTime(birthDate);
-        Calendar today = Calendar.getInstance();
-        int agecalc = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
-            agecalc--;
-        this.age = agecalc;
 
     }
 
@@ -93,13 +93,7 @@ public class Passenger implements Serializable{
         this.flightDate = flightDate;
         this.passengerType = passengerType;
 
-        Calendar dob = Calendar.getInstance();
-        dob.setTime(birthDate);
-        Calendar today = Calendar.getInstance();
-        int agecalc = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
-            agecalc--;
-        this.age = agecalc;
+       calcAge();
 
 
 

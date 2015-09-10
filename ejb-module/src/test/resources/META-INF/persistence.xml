@@ -51,7 +51,10 @@
         <class>com.realdolmen.course.domain.CreditCardType</class>
         <class>com.realdolmen.course.domain.CreditCard</class>
         <class>com.realdolmen.course.domain.Address</class>
-
+        <class>com.realdolmen.course.domain.Flight</class>
+        <class>com.realdolmen.course.domain.Status</class>
+        <class>com.realdolmen.course.domain.Ticket</class>
+        <class>com.realdolmen.course.domain.Plane</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             <property name="hibernate.hbm2ddl.auto" value="create" />
