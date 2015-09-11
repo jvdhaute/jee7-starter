@@ -24,6 +24,8 @@ public class PassengerRepository {
     }
 
     public void remove(Long id) {
-        entityManager.remove(entityManager.getReference(Passenger.class, id));
+        Passenger p = entityManager.getReference(Passenger.class, id);
+        //Ticket t =  entityManager.createQuery("select t from Ticket t where t.id = p.", Passenger.class).getResultList();
+        entityManager.remove(p);
     }
 }
