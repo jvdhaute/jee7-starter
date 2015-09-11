@@ -1,6 +1,6 @@
 package com.realdolmen.course.domain;
 
-import sun.plugin.dom.DOMObject;
+
 
 import javax.persistence.Entity;
 import java.util.Date;
