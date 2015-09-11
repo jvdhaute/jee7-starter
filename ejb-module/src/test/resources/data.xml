@@ -15,8 +15,4 @@
     <domesticflight airlineCompany="snb" reference="sdf" id="1000" />
     <domesticflight airlineCompany="ryanair" reference="sdf" id="1001" />
     <internationalflight blacklisted="1" regulations="sdf" id="1002" />
-    <ticket id="1" price="50" status="PENDING" passenger_id="1" />
-    <ticket id="2" price="500" status="PENDING" passenger_id="2" />
-    <ticket id="3" price="50000" status="PENDING" passenger_id="3" />
-    <ticket id="4" price="5000" status="PENDING" passenger_id="1" />
 </dataset>
