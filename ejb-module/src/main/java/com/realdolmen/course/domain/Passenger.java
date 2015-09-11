@@ -16,7 +16,11 @@ import com.realdolmen.course.domain.CreditCard;
 import com.realdolmen.course.domain.Address;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="FIND_ALL_LAST", query="select p.lastName from Passenger p")
+})
 public class Passenger implements Serializable{
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,13 +28,32 @@ public class Passenger implements Serializable{
     @Column( nullable = false, updatable = false)
     private String ssn;
     @Column(length = 50)
-    private String firstName;
+    public String firstName;
     @Column(length = 50)
     private String lastName;
     private Integer frequentFlyerMiles;
     @Temporal(TemporalType.DATE)
     @Column( nullable = false, updatable = false)
     private Date birthDate;
+
+    private Date dateLastUpdated;
+
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
+    }
+
+    public void setDateLastUpdated(Date dateLastUpdated) {
+        this.dateLastUpdated = dateLastUpdated;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Transient
     private int age;
     @Temporal(TemporalType.TIMESTAMP)
@@ -175,6 +198,21 @@ public class Passenger implements Serializable{
     public void setFrequentFlyerMiles(Integer frequentFlyerMiles) {
         this.frequentFlyerMiles = frequentFlyerMiles;
     }
+
+    @PrePersist
+    @PreUpdate
+    private void updateLastUpdated(){
+        dateLastUpdated = new Date();
+    }
+
+    @PostPersist
+    @PostUpdate
+    @PostLoad
+    private void recalcAge(){
+        calcAge();
+    }
+
+
 };
 
 

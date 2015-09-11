@@ -6,10 +6,12 @@ package com.realdolmen.course.persistence;
 
 import com.realdolmen.course.domain.Passenger;
 import com.realdolmen.course.domain.PassengerType;
+import com.realdolmen.course.domain.Ticket;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 
 public class PassengerRepositoryTest extends  DataSetPersistenceTest {
@@ -27,6 +29,33 @@ public class PassengerRepositoryTest extends  DataSetPersistenceTest {
         assertEquals(3, repository.findAll().size());
     }
 
+    @Test
+    public void allPassengerLastNamesCanBeRetrieved() throws Exception {
+        List<String> lst = repository.findAllLast();
+
+        assertEquals("Vdh", lst.get(0));
+    }
+
+    @Test
+       public void calcTotalSum() throws Exception {
+        long total = (long) repository.findTotalMiles();
+        assertEquals(5505L, total);
+    }
+
+
+    @Test
+    public void findTicketsforPassenger() throws Exception {
+        List<Ticket> lst = repository.findTicketsByPassengerID(1L);
+        assertEquals(2, lst.size());
+    }
+
+    /*
+    @Test
+    public void allPassengersAreDeleted() throws Exception {
+        repository.deleteAll();
+        assertEquals(0, repository.findAll().size());
+    }
+    */
 
     /*
     @Test
