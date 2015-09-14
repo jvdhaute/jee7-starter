@@ -1,6 +1,7 @@
 package com.realdolmen.course.persistence;
 
 import com.realdolmen.course.domain.Passenger;
+import com.realdolmen.course.domain.Ticket;
 
 import javax.ejb.Remote;
 import java.util.List;
@@ -20,4 +21,6 @@ public interface PassengerEJBRemote {
     void updatePassenger(Passenger passenger);
 
     void createPassenger(Passenger passenger);
+
+    void createTicket(Ticket ticket);
 }

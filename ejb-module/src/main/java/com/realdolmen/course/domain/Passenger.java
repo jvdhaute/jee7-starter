@@ -125,6 +125,8 @@ public class Passenger implements Serializable{
     }
 
 
+
+
     public Date getBirthDate() {
         return birthDate;
     }
@@ -197,6 +199,10 @@ public class Passenger implements Serializable{
 
     public void setFrequentFlyerMiles(Integer frequentFlyerMiles) {
         this.frequentFlyerMiles = frequentFlyerMiles;
+    }
+
+    public void addCreditCard(CreditCard creditCard){
+        cards.add( creditCard);
     }
 
     @PrePersist
