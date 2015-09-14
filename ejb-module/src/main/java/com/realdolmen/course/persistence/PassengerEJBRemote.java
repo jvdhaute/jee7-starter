@@ -16,4 +16,8 @@ public interface PassengerEJBRemote {
     Passenger findPassengerById(Long id);
 
     void deletePassenger(Passenger passenger);
+
+    void updatePassenger(Passenger passenger);
+
+    void createPassenger(Passenger passenger);
 }

@@ -41,6 +41,17 @@ public class PassengerEJBTest extends DataSetPersistenceTest {
 
         assertEquals("weg", p.getAddress().getStreet1());
     }
+    @Test
+    public void updatePassengerByID() throws Exception {
+
+
+        Passenger p = passengerEJB.findPassengerById(3l);
+        p.getAddress().setStreet1("vogelzang");
+        passengerEJB.updatePassenger(p);
+        p = passengerEJB.findPassengerById(3l);
+
+        assertEquals("vogelzang", p.getAddress().getStreet1());
+    }
 
 
 

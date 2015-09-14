@@ -37,5 +37,14 @@ public class PassengerEJB implements PassengerEJBRemote {
             entityManager.remove(entityManager.merge(passenger));
     }
 
+    @Override
+    public void updatePassenger(Passenger passenger){
+        entityManager.merge(passenger);
+    }
+
+    @Override
+    public void createPassenger(Passenger passenger){
+        entityManager.persist(passenger);
+    }
 
 }
