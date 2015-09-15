@@ -33,7 +33,7 @@ public class Ticket implements Serializable {
         //   this.flight = flight;
     }
 
-    protected Ticket(){
+    public Ticket(){
 
     }
 
