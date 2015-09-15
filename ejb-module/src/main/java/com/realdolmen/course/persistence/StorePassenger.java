@@ -66,6 +66,12 @@ public class StorePassenger implements StorePassengerRemote {
     }
 
 
+    public void updateTicket(String id, String price){
+        Ticket t = passengerEJB.findTicketById(Long.parseLong(id, 10));
+        t.setPrice(Double.parseDouble(price));
+        passengerEJB.updateTicket(t);
+
+    }
     /*
      SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
         Date date1 = dateformat3.parse("17/07/1989");

@@ -20,7 +20,11 @@ public interface PassengerEJBRemote {
 
     void updatePassenger(Passenger passenger);
 
+    void updateTicket(Ticket ticket);
+
     void createPassenger(Passenger passenger);
 
     void createTicket(Ticket ticket);
+
+    public Ticket findTicketById(Long id);
 }

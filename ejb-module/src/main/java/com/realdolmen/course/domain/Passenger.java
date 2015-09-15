@@ -66,7 +66,7 @@ public class Passenger implements Serializable{
     @ElementCollection
     private List<CreditCard> cards = new ArrayList<CreditCard>();
 
-    protected Passenger(){
+    public Passenger(){
 
     }
 

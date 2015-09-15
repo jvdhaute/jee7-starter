@@ -21,6 +21,7 @@ public interface StorePassengerRemote {
     public void createTicket(Double price, Status status);
     public void checkOut();
     public void checkOutTicket();
+    public void updateTicket(String id, String price);
 
 }
 

@@ -46,6 +46,14 @@ public class PassengerEJB implements PassengerEJBRemote {
     }
 
     @Override
+    public Ticket findTicketById(Long id) {
+
+        return (Ticket) entityManager.createQuery("select t from Ticket t where t.id =  :id").setParameter("id", id).getSingleResult();
+
+
+    }
+
+    @Override
     public void deletePassenger(Passenger passenger) {
             entityManager.remove(entityManager.merge(passenger));
     }
@@ -53,6 +61,11 @@ public class PassengerEJB implements PassengerEJBRemote {
     @Override
     public void updatePassenger(Passenger passenger){
         entityManager.merge(passenger);
+    }
+
+    @Override
+    public void updateTicket(Ticket ticket){
+        entityManager.merge(ticket);
     }
 
 
