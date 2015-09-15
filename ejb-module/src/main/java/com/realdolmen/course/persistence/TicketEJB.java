@@ -44,7 +44,14 @@ public class TicketEJB implements TicketEJBRemote {
 
     }
 
+    @Override
     public List<Flight> getFlights(){
         return entityManager.createQuery("select f from Flight f", Flight.class).getResultList();
+    }
+
+
+    @Override
+    public  void createTicket(Ticket t){
+        entityManager.persist(t);
     }
 }

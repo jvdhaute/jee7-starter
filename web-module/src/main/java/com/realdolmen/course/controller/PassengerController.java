@@ -1,16 +1,19 @@
 package com.realdolmen.course.controller;
 
+import com.realdolmen.course.domain.Flight;
 import com.realdolmen.course.domain.Passenger;
 import com.realdolmen.course.domain.Ticket;
 import com.realdolmen.course.persistence.PassengerEJB;
 import com.realdolmen.course.persistence.PassengerEJBRemote;
 import com.realdolmen.course.persistence.PassengerRepository;
+import com.realdolmen.course.persistence.TicketEJB;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,12 +25,18 @@ public class PassengerController {
      @EJB
     private PassengerEJB passengerEJB;
 
+    @EJB
+    private TicketEJB ticketEJB;
+
     private Passenger passenger = new Passenger();
     private Ticket ticket = new Ticket();
-    private double flightid;
-
+    private String flightID;
+    private Date arrivalTime;
     private List<Passenger> passengerList = new ArrayList<Passenger>();
+    private List<Flight> flightList = new ArrayList<Flight>();
 
+    private Long id;
+    private Long passengerID;
 
     public List<Passenger> getAllPassengers(){
         System.out.println("all passengers  requested");
@@ -38,7 +47,18 @@ public class PassengerController {
     public String doCreatePassenger(){
         passengerEJB.createPassenger(passenger);
         passengerList = getAllPassengers();
-        return "allPassengers.xhtml";
+        flightList = ticketEJB.getFlights();
+        //System.out.println
+        return "bookFlight.xhtml";
+    }
+
+    public String bookFlight(){
+        System.out.println("flightid: "+ id);
+        passenger = passengerEJB.findPassengerById(passenger.getId());
+        System.out.println(passenger.getBirthDate());
+        ticket.setPassenger(passenger);
+        ticketEJB.createTicket(ticket);
+        return "index.html";
     }
 
     public List<Passenger> getPassengerList() {
@@ -65,11 +85,43 @@ public class PassengerController {
         this.ticket = ticket;
     }
 
-    public double getFlightid() {
-        return flightid;
+    public String getFlightID() {
+        return flightID;
     }
 
-    public void setFlightid(double flightid) {
-        this.flightid = flightid;
+    public void setFlightID(String flightID) {
+        this.flightID = flightID;
+    }
+
+    public List<Flight> getFlightList() {
+        return flightList;
+    }
+
+    public void setFlightList(List<Flight> flightList) {
+        this.flightList = flightList;
+    }
+
+    public Date getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(Date arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getPassengerID() {
+        return passengerID;
+    }
+
+    public void setPassengerID(Long passengerID) {
+        this.passengerID = passengerID;
     }
 }

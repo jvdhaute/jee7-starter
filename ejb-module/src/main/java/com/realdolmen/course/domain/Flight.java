@@ -88,5 +88,9 @@ public class Flight {
         this.tickets = tickets;
     }
 
+    public void addTickets(Ticket ticket) {
+        this.tickets.add(ticket);
+    }
+
 
 }
