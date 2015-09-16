@@ -8,9 +8,11 @@ import com.realdolmen.course.persistence.*;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.enterprise.context.Conversation;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,13 +25,18 @@ import java.util.List;
 @Named
 @SessionScoped
 public class PassengerController implements Serializable {
+
+
      @EJB
     private PassengerEJB passengerEJB;
 
     @EJB
     private TicketEJB ticketEJB;
 
-
+    @Inject
+    private Conversation conversation;
+    @Inject
+    private OrderBeanInterface orderBean;
 
    private Long id;
 
@@ -55,9 +62,11 @@ public class PassengerController implements Serializable {
     }
 
     public String bookFlight(){
-        ticket.setPassenger(passenger);
-        ticket.setStatus(Status.PENDING);
-        ticketEJB.createTicket(ticket);
+        System.out.println("in bookflight");
+        orderBean.getTicket().setPassenger(orderBean.getPassenger());
+        orderBean.getTicket().setStatus(Status.PENDING);
+        ticketEJB.createTicket(orderBean.getTicketToSave());
+        conversation.end();
         return "index.html";
     }
 
@@ -118,4 +127,15 @@ public class PassengerController implements Serializable {
     }
 
 
+    public OrderBeanInterface getOrderBean() {
+        return orderBean;
+    }
+
+    public void setOrderBean(OrderBeanInterface orderBean) {
+        this.orderBean = orderBean;
+    }
+    public String startOrder(){
+        conversation.begin();
+        return "createPassenger.xhtml";
+    }
 }

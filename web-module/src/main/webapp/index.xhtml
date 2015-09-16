@@ -4,14 +4,26 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:rd="http://java.sun.com/jsf/composite/realdolmen"  >
+        <!--
+
+        <ui:insert name="pageTitle"/>
+
+        <rd:header />
+        <rd:footer page="index page" />
+        -->
+
+
     <h:head>
         <meta charset="UTF-8"/>
-        <title>Home</title>
+        <title>
+            Realdolmen
+        </title>
     </h:head>
 
     <h:body>
-        <rd:header />
+
         <h1>Home</h1>
         <p>Landing page.</p>
         <h:link outcome="/books.xhtml">List of books</h:link>
@@ -22,10 +34,16 @@
         <p>Landing page.</p>
         <h:link outcome="/allPassengers.xhtml">List of passengers</h:link>
 
+
         <h:form>
-            <h:link outcome="createPassenger.xhtml" value="Create a Passenger" />
+
+        <p:commandButton value="Start ordering ticket" action="#{passengerController.startOrder}" />
+
         </h:form>
 
-        <rd:footer page="index page" />
+
     </h:body>
+
+
 </html>
+

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"  >
 <h:head>
     <meta charset="UTF-8"/>
     <title>create Passenger </title>
@@ -18,16 +19,16 @@
  <h:form>
      <h:panelGrid columns="2" >
          <h:outputLabel value="ssn" />
-         <h:inputText value="#{passengerController.passenger.ssn}" />
+         <h:inputText value="#{passengerController.orderBean.passenger.ssn}" />
          <h:outputLabel value="First Name" />
-         <h:inputText value="#{passengerController.passenger.firstName}" />
+         <h:inputText value="#{passengerController.orderBean.passenger.firstName}" />
          <h:outputLabel value="Last Name" />
-         <h:inputText value="#{passengerController.passenger.lastName}" />
+         <h:inputText value="#{passengerController.orderBean.passenger.lastName}" />
          <h:outputLabel value="Date of Birth" />
-         <h:inputText value="#{passengerController.passenger.birthDate}">
+         <h:inputText value="#{passengerController.orderBean.passenger.birthDate}">
                <f:convertDateTime pattern="yyyy-MM-dd"/>
          </h:inputText>
-         <h:selectOneMenu id="questionStatus" value="#{passengerController.passenger.passengerType}" >
+         <h:selectOneMenu id="questionStatus" value="#{passengerController.orderBean.passenger.passengerType}" >
              <f:selectItem itemLabel="REGULAR" itemValue="REGULAR" />
              <f:selectItem itemLabel="OCCASIONAL" itemValue="OCCASIONAL" />
           </h:selectOneMenu>
@@ -35,7 +36,7 @@
 
 
      </h:panelGrid>
-     <h:commandButton value="Create Passenger" action="#{passengerController.doCreatePassenger}" />
+     <p:commandButton value="Create Passenger" action="#{passengerController.doCreatePassenger}" />
  </h:form>
 
 </h:body>

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
 <h:head>
     <meta charset="UTF-8"/>
     <title>Book Ticket </title>
@@ -13,17 +14,16 @@
 
     <h:form>
         <h:panelGrid columns="2" >
-            <h:outputLabel value="Person:" /><h:outputLabel value="#{passengerController.passenger.firstName}"   />
+            <h:outputLabel value="Person:" /><h:outputLabel value="#{passengerController.orderBean.passenger.firstName}"   />
             <h:outputLabel value="Price:" />
-            <h:inputText value="#{passengerController.ticket.price}" />
+            <h:inputText value="#{passengerController.orderBean.ticket.price}" />
             <h:outputLabel value="FlightID:" />
             <h:selectOneListbox id="selectflight" value="#{passengerController.id}" >
                 <f:selectItems value="#{passengerController.flightList}" var="flight" itemLabel="#{flight.number}" itemValue="#{flight.id}"  />
             </h:selectOneListbox>
         </h:panelGrid>
-        <h:commandButton value="Book Flight!" action="#{passengerController.bookFlight}">
-            <f:param name="pasid" value="#{passengerController.passenger.id}" />
-        </h:commandButton>
+        <p:commandButton value="Book Flight!" action="#{passengerController.bookFlight}" />
+
 
     </h:form>
 
