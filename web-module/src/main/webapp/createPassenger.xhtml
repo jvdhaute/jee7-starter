@@ -27,10 +27,10 @@
          <h:inputText value="#{passengerController.passenger.birthDate}">
                <f:convertDateTime pattern="yyyy-MM-dd"/>
          </h:inputText>
-         <h:selectOneMenu value="#{passengerController.passenger.passengerType}" >
-             <f:selectItem itemLabel="Regular" itemValue="REGULAR" />
-             <f:selectItem itemLabel="Occasional" itemValue="OCCASIONAL" />
-         </h:selectOneMenu>
+         <h:selectOneMenu id="questionStatus" value="#{passengerController.passenger.passengerType}" >
+             <f:selectItem itemLabel="REGULAR" itemValue="REGULAR" />
+             <f:selectItem itemLabel="OCCASIONAL" itemValue="OCCASIONAL" />
+          </h:selectOneMenu>
 
 
 

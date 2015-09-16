@@ -84,4 +84,11 @@ public class StorePassenger implements StorePassengerRemote {
         lst.add(card2);
     */
 
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
 }

@@ -52,6 +52,7 @@ public class TicketEJB implements TicketEJBRemote {
 
     @Override
     public  void createTicket(Ticket t){
+     //   entityManager.merge(t.getPassenger());
         entityManager.persist(t);
     }
 }

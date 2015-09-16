@@ -46,7 +46,7 @@ public class PassengerRepositoryTest extends  DataSetPersistenceTest {
     @Test
     public void findTicketsforPassenger() throws Exception {
         List<Ticket> lst = repository.findTicketsByPassengerID(1L);
-        assertEquals(0, lst.size());
+        assertEquals(1, lst.size());
     }
 
     /*

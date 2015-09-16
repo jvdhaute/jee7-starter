@@ -1,6 +1,7 @@
 package com.realdolmen.course.persistence;
 
 import com.realdolmen.course.domain.CreditCard;
+import com.realdolmen.course.domain.Passenger;
 import com.realdolmen.course.domain.PassengerType;
 import com.realdolmen.course.domain.Status;
 
@@ -21,7 +22,11 @@ public interface StorePassengerRemote {
     public void createTicket(Double price, Status status);
     public void checkOut();
     public void checkOutTicket();
+
     public void updateTicket(String id, String price);
+
+    public Passenger getPassenger();
+    public void setPassenger(Passenger passenger);
 
 }
 

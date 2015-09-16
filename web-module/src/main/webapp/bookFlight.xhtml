@@ -14,23 +14,17 @@
     <h:form>
         <h:panelGrid columns="2" >
             <h:outputLabel value="Person:" /><h:outputLabel value="#{passengerController.passenger.firstName}"   />
-
             <h:outputLabel value="Price:" />
             <h:inputText value="#{passengerController.ticket.price}" />
+            <h:outputLabel value="FlightID:" />
             <h:selectOneListbox id="selectflight" value="#{passengerController.id}" >
-                <f:selectItems value="#{passengerController.flightList}" var="flight" itemLabel="#{flight.id}" itemValue="#{flight.id}"  />
+                <f:selectItems value="#{passengerController.flightList}" var="flight" itemLabel="#{flight.number}" itemValue="#{flight.id}"  />
             </h:selectOneListbox>
-            <h:message for="selectflight" />
-
-
-
-
-
-
-
-
         </h:panelGrid>
-        <h:commandButton value="Book Flight!" action="#{passengerController.bookFlight()}" />
+        <h:commandButton value="Book Flight!" action="#{passengerController.bookFlight}">
+            <f:param name="pasid" value="#{passengerController.passenger.id}" />
+        </h:commandButton>
+
     </h:form>
 
 </h:body>
