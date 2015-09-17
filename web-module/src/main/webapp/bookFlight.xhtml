@@ -18,10 +18,18 @@
             <h:outputLabel value="Price:" />
             <h:inputText value="#{passengerController.orderBean.ticket.price}" />
             <h:outputLabel value="FlightID:" />
-            <h:selectOneListbox id="selectflight" value="#{passengerController.id}" >
+            <h:selectOneMenu id="selectflight" value="#{passengerController.id}" >
                 <f:selectItems value="#{passengerController.flightList}" var="flight" itemLabel="#{flight.number}" itemValue="#{flight.id}"  />
-            </h:selectOneListbox>
+                <f:ajax event="valueChange" listener="#{passengerController.getFlightInfo}"   render="detailsFlight" />
+            </h:selectOneMenu>
+
         </h:panelGrid>
+
+        <h:panelGroup id="detailsFlight">
+        <table>
+            <tr> <td> #{passengerController.detailedFlight.arrivalTime}</td> <td> #{passengerController.detailedFlight.departureTime}</td></tr>
+        </table>
+        </h:panelGroup>
         <p:commandButton value="Book Flight!" action="#{passengerController.bookFlight}" />
 
 

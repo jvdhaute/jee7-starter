@@ -5,6 +5,8 @@ package com.realdolmen.course.domain;
  */
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,6 +28,7 @@ public class Passenger implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column( nullable = false, updatable = false)
+    @Size(min= 1)
     private String ssn;
     @Column(length = 50)
     public String firstName;

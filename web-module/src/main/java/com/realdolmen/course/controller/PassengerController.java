@@ -12,6 +12,7 @@ import javax.enterprise.context.Conversation;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -49,6 +50,7 @@ public class PassengerController implements Serializable {
     private List<Flight> flightList = new ArrayList<Flight>();
 
 
+    private Flight detailedFlight;
 
     public List<Passenger> getAllPassengers(){
         passengerList = passengerEJB.findPassengers();
@@ -135,7 +137,24 @@ public class PassengerController implements Serializable {
         this.orderBean = orderBean;
     }
     public String startOrder(){
+        detailedFlight = ticketEJB.getFlightforID(1000l);
         conversation.begin();
         return "createPassenger.xhtml";
+    }
+
+    public void getFlightInfo(AjaxBehaviorEvent event){
+        System.out.println("in ajax call for id: " + id);
+
+        detailedFlight = ticketEJB.getFlightforID(id);
+        System.out.println(detailedFlight.getArrivalTime());
+        System.out.println(detailedFlight.getDepartureTime());
+    }
+
+    public Flight getDetailedFlight() {
+        return detailedFlight;
+    }
+
+    public void setDetailedFlight(Flight detailedFlight) {
+        this.detailedFlight = detailedFlight;
     }
 }

@@ -55,4 +55,10 @@ public class TicketEJB implements TicketEJBRemote {
      //   entityManager.merge(t.getPassenger());
         entityManager.persist(t);
     }
+
+    @Override
+    public Flight getFlightforID(long flightID) {
+        Flight flight = (Flight) entityManager.createQuery("select f from Flight f where f.id =  :id").setParameter("id", flightID).getSingleResult();
+        return flight;
+    }
 }

@@ -17,5 +17,6 @@ public interface TicketEJBRemote {
 
     public List<Flight> getFlights();
     public  void createTicket(Ticket t);
+    public Flight getFlightforID(long flightID);
 
-    }
+}

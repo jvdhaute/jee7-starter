@@ -18,10 +18,11 @@
 
  <h:form>
      <h:panelGrid columns="2" >
-         <h:outputLabel value="ssn" />
-         <h:inputText value="#{passengerController.orderBean.passenger.ssn}" />
+         <h:outputLabel  value="ssn" />
+         <h:inputText id="ssnnumber" value="#{passengerController.orderBean.passenger.ssn}">
+         </h:inputText>
          <h:outputLabel value="First Name" />
-         <h:inputText value="#{passengerController.orderBean.passenger.firstName}" />
+         <h:inputText value="#{passengerController.orderBean.passenger.firstName}"/>
          <h:outputLabel value="Last Name" />
          <h:inputText value="#{passengerController.orderBean.passenger.lastName}" />
          <h:outputLabel value="Date of Birth" />
