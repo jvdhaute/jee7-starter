@@ -57,6 +57,9 @@
         <class>com.realdolmen.course.domain.Plane</class>
         <class>com.realdolmen.course.domain.DomesticFlight</class>
         <class>com.realdolmen.course.domain.InternationalFlight</class>
+        <class>com.realdolmen.course.domain.Product</class>
+        <class>com.realdolmen.course.domain.OnlineOrder</class>
+        <class>com.realdolmen.course.domain.Customer</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             <property name="hibernate.hbm2ddl.auto" value="create" />

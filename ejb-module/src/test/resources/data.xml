@@ -18,4 +18,15 @@
     <ticket id="1" price="50" status="PENDING" passenger_id="1" />
     <ticket id="2" price="500" status="PENDING" passenger_id="2" />
     <ticket id="3" price="50000" status="PENDING" passenger_id="3" />
+    <onlineorder id="1001" dateOfOrder="2015-09-09 12:00:00" description="id 1001" />
+    <onlineorder id="1002" dateOfOrder="2015-09-09 13:00:00" description="id 1002" />
+    <onlineorder id="1003" dateOfOrder="2015-09-09 14:00:00" description="id 1003" />
+    <product id="2001" description="smartphone" name="s5" price="500" serienumber="1026599" />
+    <product id="2002" description="smartphone" name="s5 mini" price="300" serienumber="10244446599" />
+    <product id="2003" description="iphone" name="6" price="600" serienumber="26599" />
+    <product id="2004" description="iphone" name="7" price="700" serienumber="26599" />
+    <order_products order_fk="1001" product_fk="2001" />
+    <order_products order_fk="1002" product_fk="2002" />
+    <order_products order_fk="1003" product_fk="2003" />
+    <order_products order_fk="1002" product_fk="2004" />
    </dataset>

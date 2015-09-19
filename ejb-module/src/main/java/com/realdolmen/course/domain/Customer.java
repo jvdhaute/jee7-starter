@@ -1,9 +1,6 @@
 package com.realdolmen.course.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,9 +18,11 @@ public class Customer {
     private String name;
     private Date birthDate;
 
+    /*
+    @OneToMany
     private List<Order> customers = new ArrayList<>();
 
-    
+    */
 
     protected Customer(){
 
@@ -51,5 +50,11 @@ public class Customer {
         this.birthDate = birthDate;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

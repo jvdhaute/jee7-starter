@@ -9,20 +9,21 @@ import java.util.List;
  * Created by JVDAX31 on 19/09/2015.
  */
 
-@Entity
+
 public class Order {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Date orderDate;
     private boolean payed;
 
+    /*
     @ManyToMany
     @JoinTable(name ="order_products",
         joinColumns = @JoinColumn(name = "order_fk"),
         inverseJoinColumns = @JoinColumn(name = "product_fk"))
     private List<Product> products = new ArrayList<>();
+
+    */
 
 
     protected Order(){
@@ -48,5 +49,24 @@ public class Order {
 
     public void setPayed(boolean payed) {
         this.payed = payed;
+    }
+
+
+    /*
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+*/
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
